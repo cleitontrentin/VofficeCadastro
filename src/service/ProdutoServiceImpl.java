@@ -59,11 +59,4 @@ public class ProdutoServiceImpl implements ProdutoService {
        return dao.getProdutos();
         
     }
-
-    @Override
-    public ArrayList<Produto> retornar(String parametroPesquisa) {
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }

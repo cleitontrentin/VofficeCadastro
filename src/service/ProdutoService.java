@@ -13,13 +13,10 @@ import model.Produto;
  *
  * @author cleiton
  */
-public interface ProdutoService {
+public interface ProdutoService{
         public  void salvar(String descricao, int qntd, double preco);
         public  void alterar(int id,String descricao, int qntd, double preco);
 	public  void excluir(int id);
 	public  Produto getProdutoByID(int id);
         public abstract List<Produto> getProdutos();
-        public ArrayList<Produto> retornar(String parametroPesquisa);
-        
-
 }

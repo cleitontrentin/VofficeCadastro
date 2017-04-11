@@ -142,30 +142,4 @@ public class ProdutoDaoImpl implements ProdutoDao {
         }
         return produto;
     }
-    @Override
-    public ArrayList<Produto> retornar(String parametroPesquisa){
-        ArrayList<Produto> lista = new ArrayList();
-        Connection con = ConectionFactory.getConnection();
-        try{
-        String sql = "SELECT * FROM PRODUTO";
-        if (parametroPesquisa.length()>0){
-            sql+=" where nome like '%"+parametroPesquisa+"%'";
-        }
-        PreparedStatement ps = con.prepareStatement(sql); 	
-        ResultSet rs = ps.executeQuery();
-       while (rs.next ()) {
-            Produto produto = new Produto();
-
-                produto.setId(rs.getInt("id"));
-                produto.setDescricao(rs.getString("descricao"));
-                produto.setQntd(rs.getInt("quantidade"));
-                produto.setPreco(rs.getDouble("preco"));
-           lista.add(produto);
-       }
-       }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,"Erro na execução do sql: "+e);
-        }
-        return lista;
-    }
-
 }

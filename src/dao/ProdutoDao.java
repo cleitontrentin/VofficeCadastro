@@ -19,6 +19,4 @@ public interface ProdutoDao {
 	public abstract void excluir(int id);
 	public abstract Produto getProdutoByID(int id);
 	public List<Produto> getProdutos();
-        public ArrayList<Produto> retornar(String parametroPesquisa);
-   
 }
