@@ -227,6 +227,7 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
             controller.excluir(Integer.parseInt(txtId.getText()));
             atualisaTabela();
             limparCampos();
+            btnSalvar.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Selecione a linha que deseja excluir!");
         }
@@ -235,19 +236,24 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        if ((txtDescricao.getText() == null || txtDescricao.getText().trim().isEmpty())
-                || (txtQuantidade.getText() == null || txtQuantidade.getText().trim().isEmpty())
-                || (txtPreco.getText() == null || txtPreco.getText().trim().isEmpty())) {
-            JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos !"+"\n"+
-                    "Os Campos Quantidade e Preço devem conter somente numeros");
+        if (tblProduto.getSelectedRow() != -1) {
+            btnSalvar.setVisible(false);
         } else {
-            ControllerProduto controller = new ControllerProduto();
-            controller.salvar(
-                    txtDescricao.getText(),
-                    Integer.parseInt(txtQuantidade.getText()),
-                    Double.parseDouble(txtPreco.getText()));
-            atualisaTabela();
-            limparCampos();
+            btnSalvar.setVisible(true);
+            if ((txtDescricao.getText() == null || txtDescricao.getText().trim().isEmpty())
+                    || (txtQuantidade.getText() == null || txtQuantidade.getText().trim().isEmpty())
+                    || (txtPreco.getText() == null || txtPreco.getText().trim().isEmpty())) {
+                JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos !" + "\n"
+                        + "Os Campos Quantidade e Preço devem conter somente numeros");
+            } else {
+                ControllerProduto controller = new ControllerProduto();
+                controller.salvar(
+                        txtDescricao.getText(),
+                        Integer.parseInt(txtQuantidade.getText()),
+                        Double.parseDouble(txtPreco.getText()));
+                atualisaTabela();
+                limparCampos();
+            }
         }
 
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -260,6 +266,9 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
             txtQuantidade.setText(tblProduto.getValueAt(indiceDaLinha, 2).toString());
             txtPreco.setText(tblProduto.getValueAt(indiceDaLinha, 3).toString());
             txtId.setText(tblProduto.getValueAt(indiceDaLinha, 0).toString());
+            btnSalvar.setVisible(false);
+        }else{
+            btnSalvar.setVisible(true);
         }
     }//GEN-LAST:event_tblProdutoMouseClicked
 
@@ -274,6 +283,7 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
                     Double.parseDouble(txtPreco.getText()));
             atualisaTabela();
             limparCampos();
+            btnSalvar.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Para efetuar a alteração é necessário selecionar uma linha!");
         }
