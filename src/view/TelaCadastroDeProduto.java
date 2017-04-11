@@ -6,12 +6,9 @@
 package view;
 
 import controller.ControllerProduto;
-import java.awt.Component;
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import jdk.nashorn.internal.ir.BreakNode;
 import service.ProdutoServiceImpl;
 
 /**
@@ -42,14 +39,6 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
         });
     }
 
-    public JTextField getTxtDescricao() {
-        return txtDescricao;
-    }
-
-    public JTextField getTxtQuantidade() {
-        return txtQuantidade;
-    }
-
     public void limparCampos() {
         for (int i = 0; i < painelCadastroProduto.getComponentCount(); i++) {
             if (painelCadastroProduto.getComponent(i) instanceof JTextField) {
@@ -74,12 +63,12 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtDescricao = new javax.swing.JTextField();
-        txtQuantidade = new javax.swing.JTextField();
-        txtPreco = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
         txtId = new javax.swing.JTextField();
+        txtQuantidade = new javax.swing.JFormattedTextField();
+        txtPreco = new javax.swing.JFormattedTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProduto = new javax.swing.JTable();
@@ -118,6 +107,10 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
 
         txtId.setEditable(false);
 
+        txtQuantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(""))));
+
+        txtPreco.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(""))));
+
         javax.swing.GroupLayout painelCadastroProdutoLayout = new javax.swing.GroupLayout(painelCadastroProduto);
         painelCadastroProduto.setLayout(painelCadastroProdutoLayout);
         painelCadastroProdutoLayout.setHorizontalGroup(
@@ -127,14 +120,14 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
                 .addGroup(painelCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(painelCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(painelCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtQuantidade))
+                .addGap(108, 108, 108)
                 .addGroup(painelCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(painelCadastroProdutoLayout.createSequentialGroup()
                 .addGap(85, 85, 85)
@@ -159,7 +152,7 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(painelCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -302,7 +295,7 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblProduto;
     private javax.swing.JTextField txtDescricao;
     private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtPreco;
-    private javax.swing.JTextField txtQuantidade;
+    private javax.swing.JFormattedTextField txtPreco;
+    private javax.swing.JFormattedTextField txtQuantidade;
     // End of variables declaration//GEN-END:variables
 }
