@@ -250,7 +250,6 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
             limparCampos();
         }
 
-
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void tblProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProdutoMouseClicked
