@@ -238,7 +238,8 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
         if ((txtDescricao.getText() == null || txtDescricao.getText().trim().isEmpty())
                 || (txtQuantidade.getText() == null || txtQuantidade.getText().trim().isEmpty())
                 || (txtPreco.getText() == null || txtPreco.getText().trim().isEmpty())) {
-            JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos !");
+            JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos !"+"\n"+
+                    "Os Campos Quantidade e Preço devem conter somente numeros");
         } else {
             ControllerProduto controller = new ControllerProduto();
             controller.salvar(
