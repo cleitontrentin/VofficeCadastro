@@ -42,23 +42,6 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
         });
     }
 
-    public void verificaCampos() {
-        for (int i = 0; i < painelCadastroProduto.getComponentCount(); i++) {
-            if (painelCadastroProduto.getComponent(i) instanceof JTextField) {
-                ((JTextField) painelCadastroProduto.getComponent(i)).getText().isEmpty();
-
-                atualisaTabela();
-                limparCampos();
-            } else {
-                JOptionPane.showMessageDialog(null, "Preencher todos os campos corretamente /n "
-                        + "Verifique os campos Quantidade e Preço se estão preenchidos com Numeros ");
-
-                break;
-            }
-
-        }
-    }
-
     public JTextField getTxtDescricao() {
         return txtDescricao;
     }
@@ -71,19 +54,6 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
         for (int i = 0; i < painelCadastroProduto.getComponentCount(); i++) {
             if (painelCadastroProduto.getComponent(i) instanceof JTextField) {
                 ((JTextField) painelCadastroProduto.getComponent(i)).setText("");
-            }
-
-        }
-
-    }
-
-    public void VerificaCampos() {
-        for (int i = 0; i < painelCadastroProduto.getComponentCount(); i++) {
-            if (painelCadastroProduto.getComponent(i) instanceof JTextField) {
-                if (((JTextField) painelCadastroProduto.getComponent(i)).getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Preencher todos os campos");
-                    break;
-                }
             }
 
         }
@@ -272,28 +242,18 @@ public class TelaCadastroDeProduto extends javax.swing.JInternalFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-//        if ((txtDescricao.getText() == null || txtDescricao.getText().trim().isEmpty())
-//                || (txtQuantidade.getText() == null || txtQuantidade.getText().trim().isEmpty())
-//                || (txtPreco.getText() == null || txtPreco.getText().trim().isEmpty())) {
-//            JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos !");
-
-        for (int i = 0; i < painelCadastroProduto.getComponentCount(); i++) {
-            if (painelCadastroProduto.getComponent(i) instanceof JTextField) {
-                if (((JTextField) painelCadastroProduto.getComponent(i)).getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos !");
-                    break;
-                } else {
-                    ControllerProduto controller = new ControllerProduto();
-                    controller.salvar(
-                            txtDescricao.getText(),
-                            Integer.parseInt(txtQuantidade.getText()),
-                            Double.parseDouble(txtPreco.getText()));
-                    atualisaTabela();
-                    limparCampos();
-                }
-
-            }
-
+        if ((txtDescricao.getText() == null || txtDescricao.getText().trim().isEmpty())
+                || (txtQuantidade.getText() == null || txtQuantidade.getText().trim().isEmpty())
+                || (txtPreco.getText() == null || txtPreco.getText().trim().isEmpty())) {
+            JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos !");
+        } else {
+            ControllerProduto controller = new ControllerProduto();
+            controller.salvar(
+                    txtDescricao.getText(),
+                    Integer.parseInt(txtQuantidade.getText()),
+                    Double.parseDouble(txtPreco.getText()));
+            atualisaTabela();
+            limparCampos();
         }
 
 
