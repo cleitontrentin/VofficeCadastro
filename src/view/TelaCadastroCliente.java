@@ -350,13 +350,12 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtEmailClienteActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        //        JOptionPane.showMessageDialog(null, "Nome: "+TxtNomeCliente.getText()
-        //        +" Sexo: "+ComboBoxSexo.getSelectedItem());
+
         ControllerCliente controller = new ControllerCliente();
         Calendar dataInicial;
 
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/YYYY");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             dataInicial = Calendar.getInstance();
             dataInicial.setTime(sdf.parse(TxtDtNascimento.getText()));
 
