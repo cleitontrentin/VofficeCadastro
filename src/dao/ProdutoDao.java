@@ -18,5 +18,5 @@ public interface ProdutoDao {
         public abstract void atualizar(Produto produto);
 	public abstract void excluir(int id);
 	public abstract Produto getProdutoByID(int id);
-	public List<Produto> getProdutos();
+	public List getProdutos();
 }
