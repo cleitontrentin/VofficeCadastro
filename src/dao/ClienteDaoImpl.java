@@ -60,7 +60,7 @@ public class ClienteDaoImpl implements ClienteDao {
                 pstm.setString(12, cliente.getCep());
 
                 pstm.execute();
-                System.out.println("Cliente cadastrado com sucesso");
+                JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso");
 
             } catch (Exception e) {
                 System.out.println("Erro ao inserir Cliente no banco de " + "dados " + e.getMessage());
@@ -81,7 +81,7 @@ public class ClienteDaoImpl implements ClienteDao {
             pstm.setString(1, cpf);
 
             pstm.execute();
-            System.out.println("Cliente excluido com sucesso!");
+            JOptionPane.showMessageDialog(null,"Cliente excluido com sucesso!");
 
         } catch (Exception e) {
             System.out.println("Erro ao excluir Cliente do banco de" + "dados " + e.getMessage());
@@ -91,7 +91,7 @@ public class ClienteDaoImpl implements ClienteDao {
 
 
     @Override
-   public ArrayList<Cliente> getAllClientes() {
+   public List<Cliente> getAllClientes() {
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -127,7 +127,7 @@ public class ClienteDaoImpl implements ClienteDao {
         }
         return ListaClientes;
     }
-
+   
 
 
 }
